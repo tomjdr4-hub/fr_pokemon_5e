@@ -3,7 +3,7 @@ import { pk5eLog } from "./utils/logs.js";
 
 Hooks.once("init", () => {
 	// STAB Version
-	game.settings.register("pokemon5e", "stabVersion", {
+	game.settings.register("fr_pokemon_5e", "stabVersion", {
 		name: "Version du STAB",
 		hint: "Modificateur final appliqué aux capacités bénéficiant du STAB (bonus d'attaque du même type).",
 		scope: "world",
@@ -22,7 +22,7 @@ Hooks.once("init", () => {
 	});
 
 	// Add Pokémon Region Languages
-	game.settings.register("pokemon5e", "addPokemonLanguages", {
+	game.settings.register("fr_pokemon_5e", "addPokemonLanguages", {
 		name: "Ajouter les langues des régions Pokémon",
 		hint: "Ajoute les langues des régions Pokémon à la liste des langues.",
 		scope: "world",
@@ -34,7 +34,7 @@ Hooks.once("init", () => {
 	});
 
 	// Remove DnD Languages
-	game.settings.register("pokemon5e", "removeDndLanguagues", {
+	game.settings.register("fr_pokemon_5e", "removeDndLanguagues", {
 		name: "Retirer les langues de D&D",
 		hint: "Retire les langues de D&D de la liste des langues.",
 		scope: "world",
@@ -46,7 +46,7 @@ Hooks.once("init", () => {
 	});
 
 	// Currency Name
-	game.settings.register("pokemon5e", "currencyName", {
+	game.settings.register("fr_pokemon_5e", "currencyName", {
 		name: "Nom de la monnaie",
 		hint: "Nom de la monnaie utilisée dans l'univers Pokémon.",
 		scope: "world",
@@ -65,7 +65,7 @@ Hooks.once("init", () => {
 	});
 
 	// Replace DnD Currencies
-	game.settings.register("pokemon5e", "replaceDndCurrencies", {
+	game.settings.register("fr_pokemon_5e", "replaceDndCurrencies", {
 		name: "Remplacer les monnaies de D&D",
 		hint: "Remplace les monnaies de D&D par la monnaie Pokémon.",
 		scope: "world",
@@ -77,7 +77,7 @@ Hooks.once("init", () => {
 	});
 
 	// Remove "Type" word from Pokémon Types
-	game.settings.register("pokemon5e", "removeTypeWord", {
+	game.settings.register("fr_pokemon_5e", "removeTypeWord", {
 		name: "Retirer le mot « Type » des types Pokémon",
 		hint: "Retire le mot « Type » des types Pokémon pour ne garder que le nom. Exemple : « Type Feu » deviendra « Feu ».",
 		scope: "world",
@@ -89,7 +89,7 @@ Hooks.once("init", () => {
 	});
 
 	// Remove DnD Damage Types
-	game.settings.register("pokemon5e", "removeDndDamageTypes", {
+	game.settings.register("fr_pokemon_5e", "removeDndDamageTypes", {
 		name: "Retirer les types de dégâts de D&D",
 		hint: "Retire les types de dégâts de D&D de la liste des types de dégâts, pour ne garder que les types Pokémon.",
 		scope: "world",
@@ -101,7 +101,7 @@ Hooks.once("init", () => {
 	});
 
 	// Remove DnD Poisoned and Paralyzed Conditions
-	game.settings.register("pokemon5e", "removeDndSimilarConditions", {
+	game.settings.register("fr_pokemon_5e", "removeDndSimilarConditions", {
 		name: "Retirer les états similaires de D&D (empoisonné et paralysé)",
 		hint: "Retire les états empoisonné et paralysé de D&D de la liste des états, pour ne garder que leurs équivalents en tant qu'altérations de statut Pokémon.",
 		scope: "world",
@@ -113,7 +113,7 @@ Hooks.once("init", () => {
 	});
 
 	// Enable Debug Logs
-	game.settings.register("pokemon5e", "enableDebugLogs", {
+	game.settings.register("fr_pokemon_5e", "enableDebugLogs", {
 		name: "Activer les journaux de débogage",
 		hint: "Active les journaux de débogage du module. Utile pour le développement et le dépannage.",
 		scope: "user",
@@ -125,7 +125,7 @@ Hooks.once("init", () => {
 	});
 
 	// Show all Helpers
-	game.settings.registerMenu("pokemon5e", "helpers", {
+	game.settings.registerMenu("fr_pokemon_5e", "helpers", {
 		name: "Outils d'aide",
 		label: "Ouvrir le menu des outils d'aide",
 		hint: "Accédez à tous les outils d'aide inclus dans le module pour résoudre les incompatibilités et les erreurs.",
@@ -139,17 +139,17 @@ Hooks.once("init", () => {
 Hooks.once("init", async () => {
 	// Load partials for Helpers
     await loadTemplates([
-        "modules/pokemon5e/esmodules/applications/helpersMenu/helpers/npcHpFixer/tree-node.hbs",
-        "modules/pokemon5e/esmodules/applications/helpersMenu/helpers/npcHpFixer/file-explorer.hbs"
+        "modules/fr_pokemon_5e/esmodules/applications/helpersMenu/helpers/npcHpFixer/tree-node.hbs",
+        "modules/fr_pokemon_5e/esmodules/applications/helpersMenu/helpers/npcHpFixer/file-explorer.hbs"
     ]);
 
     // Registrar con nombre corto para poder usarlo en los hbs más fácilmente
     Handlebars.registerPartial(
         "pk5e-tree-node",
-        Handlebars.partials["modules/pokemon5e/esmodules/applications/helpersMenu/helpers/npcHpFixer/tree-node.hbs"]
+        Handlebars.partials["modules/fr_pokemon_5e/esmodules/applications/helpersMenu/helpers/npcHpFixer/tree-node.hbs"]
     );
     Handlebars.registerPartial(
         "pk5e-file-explorer",
-        Handlebars.partials["modules/pokemon5e/esmodules/applications/helpersMenu/helpers/npcHpFixer/file-explorer.hbs"]
+        Handlebars.partials["modules/fr_pokemon_5e/esmodules/applications/helpersMenu/helpers/npcHpFixer/file-explorer.hbs"]
     );
 });

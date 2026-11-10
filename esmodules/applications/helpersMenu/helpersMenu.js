@@ -48,7 +48,7 @@ export class pk5eHelpersMenu extends HandlebarsApplicationMixin(ApplicationV2) {
 	static PARTS = {
 		// Main content with the list of available helper buttons
 		content: {
-			template: "modules/pokemon5e/esmodules/applications/helpersMenu/helpersMenu.hbs"
+			template: "modules/fr_pokemon_5e/esmodules/applications/helpersMenu/helpersMenu.hbs"
 		}
 	};
 

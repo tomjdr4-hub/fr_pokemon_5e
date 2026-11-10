@@ -3,7 +3,7 @@
 > [!NOTE]
 > **Traduction française non officielle** du module [Pokémon 5e pour FoundryVTT](https://github.com/MissingGlitch/pokemon5e-foundry-module) de Moge et Missing Glitch (licence MIT), basée sur la version 0.13.0.
 > Compendiums (Pokédex, capacités, talents, objets, dresseurs, règles), interface et documentation sont traduits en français. Les noms officiels français des Pokémon, capacités, talents et objets proviennent de [PokéAPI](https://pokeapi.co/).
-> L'identifiant du module reste `pokemon5e` : cette version remplace la version anglaise (ne pas installer les deux en même temps). Les distances restent exprimées en pieds, comme sur les fiches dnd5e.
+> Identifiant du module : `fr_pokemon_5e`. Il peut être installé à côté de la version anglaise (`pokemon5e`) sans l'écraser ; activez-en un seul par monde pour éviter les doublons. Les distances restent exprimées en pieds, comme sur les fiches dnd5e.
 > Pour signaler une erreur de traduction : [issues de ce dépôt](https://github.com/tomjdr4-hub/fr_pokemon_5e/issues).
 
 

@@ -5,7 +5,7 @@
  * @param {...*}    [data]  - Optional additional values to log inside a collapsible group.
  */
 export function pk5eLog(text, ...data) {
-    if (!game.settings.get("pokemon5e", "enableDebugLogs")) return;
+    if (!game.settings.get("fr_pokemon_5e", "enableDebugLogs")) return;
     const style = `background-color: black; color: #ffcc01`;
 
     if (data.length === 0) {

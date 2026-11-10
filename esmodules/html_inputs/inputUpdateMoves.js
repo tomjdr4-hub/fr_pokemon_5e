@@ -295,7 +295,7 @@ function getCurrentValue(weaponType, pokemonMove, targetActivity) {
  */
 function getCorrespondingStab(pokemonMove, currentLevel, stabType) {
 	if (!stabType) return 0;
-	const stabVersion = game.settings.get("pokemon5e", "stabVersion");
+	const stabVersion = game.settings.get("fr_pokemon_5e", "stabVersion");
 	const correspondingBonus = (stabVersion === "2024")
 		? "@prof"
 		: (currentLevel >= 19) ? 5 : (currentLevel >= 15) ? 4 : (currentLevel >= 11) ? 3 : (currentLevel >= 7) ? 2 : (currentLevel >= 3) ? 1 : 0;

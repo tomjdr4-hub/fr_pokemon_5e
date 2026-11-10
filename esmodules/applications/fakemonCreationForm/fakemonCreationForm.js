@@ -6,24 +6,24 @@ import { POKEMON_TYPES } from "./../../addPokemonSystemProperties.js";
  * @type {Record<string, string>}
  */
 const POKEMON_TYPE_UUIDS = {
-	bug:      "Compendium.pokemon5e.pokemon_features.Item.jK466h0FxTM3E9y5",
-	dark:     "Compendium.pokemon5e.pokemon_features.Item.0ImTngm94sacmzTJ",
-	dragon:   "Compendium.pokemon5e.pokemon_features.Item.FfnccGLYBrA7nLUv",
-	electric: "Compendium.pokemon5e.pokemon_features.Item.KApdMrKdyXnfJlXr",
-	fairy:    "Compendium.pokemon5e.pokemon_features.Item.aMdOEX5MAAQYO8bJ",
-	fighting: "Compendium.pokemon5e.pokemon_features.Item.QITA3C8sih45GhsT",
-	fire:     "Compendium.pokemon5e.pokemon_features.Item.VsRkNpmEZBK0UnRf",
-	flying:   "Compendium.pokemon5e.pokemon_features.Item.3nxzz6wKLDF8vHaW",
-	ghost:    "Compendium.pokemon5e.pokemon_features.Item.0o9rE9bwL8LjsTJZ",
-	grass:    "Compendium.pokemon5e.pokemon_features.Item.2AvSLcSmxWltgXLr",
-	ground:   "Compendium.pokemon5e.pokemon_features.Item.NhHRsF857B68uGuu",
-	ice:      "Compendium.pokemon5e.pokemon_features.Item.kPnmDyxFSBm1BXcI",
-	normal:   "Compendium.pokemon5e.pokemon_features.Item.bTlPH8T67LGVEFKp",
-	poison:   "Compendium.pokemon5e.pokemon_features.Item.dirLucCtDukMPD9f",
-	psychic:  "Compendium.pokemon5e.pokemon_features.Item.MBl4s7HcseRweHMw",
-	rock:     "Compendium.pokemon5e.pokemon_features.Item.2kCpMNYPRM45ypE5",
-	steel:    "Compendium.pokemon5e.pokemon_features.Item.J187dwFrTXn2B6OY",
-	water:    "Compendium.pokemon5e.pokemon_features.Item.cizYNw5DzMXgrGYz"
+	bug:      "Compendium.fr_pokemon_5e.pokemon_features.Item.jK466h0FxTM3E9y5",
+	dark:     "Compendium.fr_pokemon_5e.pokemon_features.Item.0ImTngm94sacmzTJ",
+	dragon:   "Compendium.fr_pokemon_5e.pokemon_features.Item.FfnccGLYBrA7nLUv",
+	electric: "Compendium.fr_pokemon_5e.pokemon_features.Item.KApdMrKdyXnfJlXr",
+	fairy:    "Compendium.fr_pokemon_5e.pokemon_features.Item.aMdOEX5MAAQYO8bJ",
+	fighting: "Compendium.fr_pokemon_5e.pokemon_features.Item.QITA3C8sih45GhsT",
+	fire:     "Compendium.fr_pokemon_5e.pokemon_features.Item.VsRkNpmEZBK0UnRf",
+	flying:   "Compendium.fr_pokemon_5e.pokemon_features.Item.3nxzz6wKLDF8vHaW",
+	ghost:    "Compendium.fr_pokemon_5e.pokemon_features.Item.0o9rE9bwL8LjsTJZ",
+	grass:    "Compendium.fr_pokemon_5e.pokemon_features.Item.2AvSLcSmxWltgXLr",
+	ground:   "Compendium.fr_pokemon_5e.pokemon_features.Item.NhHRsF857B68uGuu",
+	ice:      "Compendium.fr_pokemon_5e.pokemon_features.Item.kPnmDyxFSBm1BXcI",
+	normal:   "Compendium.fr_pokemon_5e.pokemon_features.Item.bTlPH8T67LGVEFKp",
+	poison:   "Compendium.fr_pokemon_5e.pokemon_features.Item.dirLucCtDukMPD9f",
+	psychic:  "Compendium.fr_pokemon_5e.pokemon_features.Item.MBl4s7HcseRweHMw",
+	rock:     "Compendium.fr_pokemon_5e.pokemon_features.Item.2kCpMNYPRM45ypE5",
+	steel:    "Compendium.fr_pokemon_5e.pokemon_features.Item.J187dwFrTXn2B6OY",
+	water:    "Compendium.fr_pokemon_5e.pokemon_features.Item.cizYNw5DzMXgrGYz"
 };
 
 /**
@@ -112,11 +112,11 @@ export class FakemonCreationDialog extends dnd5e.applications.api.Dialog5e {
 	 */
 	static PARTS = {
 		tabs:       { template: "templates/generic/tab-navigation.hbs" },
-		identity:   { template: "modules/pokemon5e/esmodules/applications/fakemonCreationForm/tabs/identity.hbs" },
-		stats:      { template: "modules/pokemon5e/esmodules/applications/fakemonCreationForm/tabs/stats.hbs" },
-		features:   { template: "modules/pokemon5e/esmodules/applications/fakemonCreationForm/tabs/features.hbs" },
-		moves:      { template: "modules/pokemon5e/esmodules/applications/fakemonCreationForm/tabs/moves.hbs" },
-		evolution:  { template: "modules/pokemon5e/esmodules/applications/fakemonCreationForm/tabs/evolution.hbs" },
+		identity:   { template: "modules/fr_pokemon_5e/esmodules/applications/fakemonCreationForm/tabs/identity.hbs" },
+		stats:      { template: "modules/fr_pokemon_5e/esmodules/applications/fakemonCreationForm/tabs/stats.hbs" },
+		features:   { template: "modules/fr_pokemon_5e/esmodules/applications/fakemonCreationForm/tabs/features.hbs" },
+		moves:      { template: "modules/fr_pokemon_5e/esmodules/applications/fakemonCreationForm/tabs/moves.hbs" },
+		evolution:  { template: "modules/fr_pokemon_5e/esmodules/applications/fakemonCreationForm/tabs/evolution.hbs" },
 		footer:     { template: "templates/generic/form-footer.hbs" }
 	};
 
@@ -274,7 +274,7 @@ export class FakemonCreationDialog extends dnd5e.applications.api.Dialog5e {
 		if (tabsNav && !tabsNav.nextElementSibling?.classList.contains("ampersand")) {
 			const divider = document.createElement("hr");
 			divider.classList.add("ampersand");
-			divider.style.backgroundImage = "url('modules/pokemon5e/extras/pokeball.svg')";
+			divider.style.backgroundImage = "url('modules/fr_pokemon_5e/extras/pokeball.svg')";
 			divider.style.filter = "invert(64%) sepia(14%) saturate(563%) hue-rotate(3deg) brightness(89%) contrast(90%)";
 			divider.style.flexShrink = "0";
 			tabsNav.insertAdjacentElement("afterend", divider);
@@ -897,7 +897,7 @@ export class FakemonCreationDialog extends dnd5e.applications.api.Dialog5e {
 			const actorData = {
 				name: data.name,
 				type: "npc",
-				img: validImg || "modules/pokemon5e/extras/pokeball.svg",
+				img: validImg || "modules/fr_pokemon_5e/extras/pokeball.svg",
 				folder: data.folder || null,
 				system: {
 					attributes: {
@@ -990,7 +990,7 @@ export class FakemonCreationDialog extends dnd5e.applications.api.Dialog5e {
 			// same criterion #buildBiographyHtml already uses for the biography text), plus "Struggle"
 			// -- always mandatory, since every Pokémon knows it by default without needing to learn it.
 			// The Set prevents duplicating Struggle if it happened to already be among the first 4.
-			const STRUGGLE_UUID = "Compendium.pokemon5e.pokemon_moves.Item.53VnJUr12moqMJim";
+			const STRUGGLE_UUID = "Compendium.fr_pokemon_5e.pokemon_moves.Item.53VnJUr12moqMJim";
 			const levelMoveUuids = Object.keys(data.moves?.level ?? {})
 				.map(Number)
 				.sort((a, b) => a - b)

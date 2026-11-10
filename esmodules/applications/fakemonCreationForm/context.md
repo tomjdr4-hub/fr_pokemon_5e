@@ -166,13 +166,13 @@ Le `<multi-select>` (désormais picker) de « Possible Abilities » dans `featur
 
 ```js
 const POKEMON_TYPE_UUIDS = {
-	bug: "Compendium.pokemon5e.pokemon_features.Item.jK466h0FxTM3E9y5",
-	dark: "Compendium.pokemon5e.pokemon_features.Item.0ImTngm94sacmzTJ",
+	bug: "Compendium.fr_pokemon_5e.pokemon_features.Item.jK466h0FxTM3E9y5",
+	dark: "Compendium.fr_pokemon_5e.pokemon_features.Item.0ImTngm94sacmzTJ",
 	// ...les 18 vrais types, SANS "typeless" (il n'a pas d'objet réel dans le compendium)
 };
 ```
 
-On stocke l'**UUID complet** (`"Compendium.pokemon5e.pokemon_features.Item.{id}"`), pas l'ID seul, pour l'utiliser directement dans `@UUID[...]{Label}` dans la biographie sans reconstruire la chaîne. Il ne sert que de dictionnaire de correspondance `slug → UUID` dans `#buildBiographyHtml` (section 15), jamais pour alimenter un `<select>`/`<multi-select>` (ceux-ci continuent d'utiliser `POKEMON_TYPES` tel quel, voir section 6.4).
+On stocke l'**UUID complet** (`"Compendium.fr_pokemon_5e.pokemon_features.Item.{id}"`), pas l'ID seul, pour l'utiliser directement dans `@UUID[...]{Label}` dans la biographie sans reconstruire la chaîne. Il ne sert que de dictionnaire de correspondance `slug → UUID` dans `#buildBiographyHtml` (section 15), jamais pour alimenter un `<select>`/`<multi-select>` (ceux-ci continuent d'utiliser `POKEMON_TYPES` tel quel, voir section 6.4).
 
 ## 6.4. Bug : `<multi-select name="pokemonTypes">` enregistrait des index numériques au lieu des slugs — ✅ RÉSOLU
 
@@ -238,8 +238,8 @@ Voici la suite à partir du point 10, prête à copier-coller à partir de l'end
 
 | Type de donnée | Décision |
 |---|---|
-| Capacités (Moves) | Sélection depuis les compendiums existants (`pokemon5e.pokemon_moves`) via le picker du `CompendiumBrowser` (voir section 6.1), pas de `<multi-select>`. Capacités CT, capacités Œuf, et **20 niveaux fixes (1-20)** toujours visibles avec des libellés dynamiques. |
-| Features/talents (feats) | Sélection depuis le compendium `pokemon5e.pokemon_features` via le picker du `CompendiumBrowser`, filtrée par `system.type.value === "monster"` et `subtype: "ability"`. « Possible Abilities » (`possibleAbilities`) et « Possible Hidden Abilities » (`possibleHiddenAbilities`) partagent le même ensemble/filtre — décision confirmée par l'utilisateur. |
+| Capacités (Moves) | Sélection depuis les compendiums existants (`fr_pokemon_5e.pokemon_moves`) via le picker du `CompendiumBrowser` (voir section 6.1), pas de `<multi-select>`. Capacités CT, capacités Œuf, et **20 niveaux fixes (1-20)** toujours visibles avec des libellés dynamiques. |
+| Features/talents (feats) | Sélection depuis le compendium `fr_pokemon_5e.pokemon_features` via le picker du `CompendiumBrowser`, filtrée par `system.type.value === "monster"` et `subtype: "ability"`. « Possible Abilities » (`possibleAbilities`) et « Possible Hidden Abilities » (`possibleHiddenAbilities`) partagent le même ensemble/filtre — décision confirmée par l'utilisateur. |
 | Egg Group | Liste d'options typiques (`<multi-select>`, valeurs déjà mises en majuscules comme texte d'affichage, ex. « Water 1 », « No Eggs Discovered » ; en français : « Aquatique 1 », « Inconnu »…) |
 | Sexe/ratio | Case à cocher « Has Gender » + deux champs numériques (`genderRatio.female`/`.male`) + mode « Genderless » en lecture seule. Dans la biographie, affiché sous forme de fraction réduite par PGCD + arrondi au pas canonique Pokémon le plus proche (voir section 15). |
 | Évolution (pré/post) | Texte libre uniquement, sans lien vers l'UUID d'un acteur réel. Cases « Has Pre-Evolution »/« Has Next Evolution » + champ conditionnel des stades d'évolution. Dans la biographie, on affiche le texte libre + une étiquette de stade (« N / Total (Initial/Intermediate/Final Stage) »). |
@@ -341,7 +341,7 @@ L'utilisateur a confirmé que la biographie générée fonctionne de bout en bou
 
 ### Objets de capacité
 
-- On collecte les UUID de `data.moves.level.*` par ordre croissant de niveau (à partir de `minLevel`), on prend les 4 premiers, et on ajoute toujours `"Compendium.pokemon5e.pokemon_moves.Item.53VnJUr12moqMJim"` (Struggle, « Lutte » en français) -- dédoublonné avec un `Set`. `moves.tm`/`moves.egg` ne sont PAS inclus dans ce décompte des « 4 premiers » et ne sont pas intégrés.
+- On collecte les UUID de `data.moves.level.*` par ordre croissant de niveau (à partir de `minLevel`), on prend les 4 premiers, et on ajoute toujours `"Compendium.fr_pokemon_5e.pokemon_moves.Item.53VnJUr12moqMJim"` (Struggle, « Lutte » en français) -- dédoublonné avec un `Set`. `moves.tm`/`moves.egg` ne sont PAS inclus dans ce décompte des « 4 premiers » et ne sont pas intégrés.
 - Tous les objets (classe, types, talent, capacités) sont créés en un seul `actor.createEmbeddedDocuments("Item", [...])`.
 
 ## 17. Validation des champs obligatoires (implémentée en session 3)

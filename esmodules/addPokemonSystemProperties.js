@@ -10,13 +10,13 @@ const POKEMON_STANDARD_LANGUAGUES = ["kantoan", "johtoan", "hoennese", "sinnohan
 const POKEMON_EXOTIC_LANGUAGUES = ["unown", "pokemon"];
 const POKEMON_CONDITIONS = ["asleep", "burned", "frozen", "paralyzed", "poisoned", "confused", "flinched"]; // No están: ["poisoned_badly", "fainted"]
 const POKEMON_CONDITIONS_REFERENCES = {
-	asleep: "Compendium.pokemon5e.rules.JournalEntry.gjYM3eODnlkQT2IS.JournalEntryPage.dbEFGKXeoIM9V9WZ",
-	burned: "Compendium.pokemon5e.rules.JournalEntry.gjYM3eODnlkQT2IS.JournalEntryPage.s9ZnlAxt05BvQi3y",
-	frozen: "Compendium.pokemon5e.rules.JournalEntry.gjYM3eODnlkQT2IS.JournalEntryPage.IB2TcccVMplAoHgr",
-	paralyzed: "Compendium.pokemon5e.rules.JournalEntry.gjYM3eODnlkQT2IS.JournalEntryPage.znhZDTB3NO7hgyHq",
-	poisoned: "Compendium.pokemon5e.rules.JournalEntry.gjYM3eODnlkQT2IS.JournalEntryPage.mGwSRQnixsPaH84o",
-	confused: "Compendium.pokemon5e.rules.JournalEntry.gjYM3eODnlkQT2IS.JournalEntryPage.uAmocf1N2gcBf24K",
-	flinched: "Compendium.pokemon5e.rules.JournalEntry.gjYM3eODnlkQT2IS.JournalEntryPage.SbZkNPk5D8VpsYJq"
+	asleep: "Compendium.fr_pokemon_5e.rules.JournalEntry.gjYM3eODnlkQT2IS.JournalEntryPage.dbEFGKXeoIM9V9WZ",
+	burned: "Compendium.fr_pokemon_5e.rules.JournalEntry.gjYM3eODnlkQT2IS.JournalEntryPage.s9ZnlAxt05BvQi3y",
+	frozen: "Compendium.fr_pokemon_5e.rules.JournalEntry.gjYM3eODnlkQT2IS.JournalEntryPage.IB2TcccVMplAoHgr",
+	paralyzed: "Compendium.fr_pokemon_5e.rules.JournalEntry.gjYM3eODnlkQT2IS.JournalEntryPage.znhZDTB3NO7hgyHq",
+	poisoned: "Compendium.fr_pokemon_5e.rules.JournalEntry.gjYM3eODnlkQT2IS.JournalEntryPage.mGwSRQnixsPaH84o",
+	confused: "Compendium.fr_pokemon_5e.rules.JournalEntry.gjYM3eODnlkQT2IS.JournalEntryPage.uAmocf1N2gcBf24K",
+	flinched: "Compendium.fr_pokemon_5e.rules.JournalEntry.gjYM3eODnlkQT2IS.JournalEntryPage.SbZkNPk5D8VpsYJq"
 }
 const POKEMON_TYPE_LABELS = {
 	steel: "Acier", water: "Eau", bug: "Insecte", dragon: "Dragon", electric: "Électrik", ghost: "Spectre",
@@ -50,7 +50,7 @@ Hooks.once("init", () => {
 	pk5eLog("pk5e (init): Settings Loaded");
 
 	// Pokemon Types
-	const theDndDamageTypesWillBeRemoved = game.settings.get("pokemon5e", "removeDndDamageTypes");
+	const theDndDamageTypesWillBeRemoved = game.settings.get("fr_pokemon_5e", "removeDndDamageTypes");
 	{
 		let labelPrefix = PK5E_PREFIX.forLabels;
 		if (theDndDamageTypesWillBeRemoved) {
@@ -59,7 +59,7 @@ Hooks.once("init", () => {
 				if (!damageType.startsWith(PK5E_PREFIX.forProperties)) delete CONFIG.DND5E.damageTypes[damageType];
 			}
 		}
-		const theTypeWordWillBeRemoved = game.settings.get("pokemon5e", "removeTypeWord");
+		const theTypeWordWillBeRemoved = game.settings.get("fr_pokemon_5e", "removeTypeWord");
 		const typeWord = theTypeWordWillBeRemoved ? "" : "Type";
 		POKEMON_TYPES.forEach(type => {
 			CONFIG.DND5E.damageTypes[`${PK5E_PREFIX.forProperties}_${type}`] = {
@@ -72,13 +72,13 @@ Hooks.once("init", () => {
 	}
 
 	// Languages
-	const theDndLanguagesWillBeRemoved = game.settings.get("pokemon5e", "removeDndLanguagues");
+	const theDndLanguagesWillBeRemoved = game.settings.get("fr_pokemon_5e", "removeDndLanguagues");
 	{
 		if (theDndLanguagesWillBeRemoved) {
 			delete CONFIG.DND5E.languages.exotic;
 			delete CONFIG.DND5E.languages.standard;
 		}
-		const thePokemonLanguaguesWillBeAdded = game.settings.get("pokemon5e", "addPokemonLanguages");
+		const thePokemonLanguaguesWillBeAdded = game.settings.get("fr_pokemon_5e", "addPokemonLanguages");
 		if (thePokemonLanguaguesWillBeAdded) {
 			const labelPrefix = "Univers Pokémon";
 			const propertyPrefix = "pokemon_setting";
@@ -102,7 +102,7 @@ Hooks.once("init", () => {
 	}
 
 	// Pokémon Status Conditions
-	const theDndSimilarConditionsWillBeRemoved = game.settings.get("pokemon5e", "removeDndSimilarConditions");
+	const theDndSimilarConditionsWillBeRemoved = game.settings.get("fr_pokemon_5e", "removeDndSimilarConditions");
 	{
 		let labelPrefix = PK5E_PREFIX.forLabels;
 		if (theDndSimilarConditionsWillBeRemoved) {
@@ -122,10 +122,10 @@ Hooks.once("init", () => {
 	}
 
 	// Currencies
-	const theDndCurrenciesWillBeReplaced = game.settings.get("pokemon5e", "replaceDndCurrencies");
+	const theDndCurrenciesWillBeReplaced = game.settings.get("fr_pokemon_5e", "replaceDndCurrencies");
 	if (theDndCurrenciesWillBeReplaced) {
 		const currencyToChange = "gp"; // pp, gp, ep, sp, cp
-		const currencyName = CURRENCY_NAMES_FORMATTED[game.settings.get("pokemon5e", "currencyName")];
+		const currencyName = CURRENCY_NAMES_FORMATTED[game.settings.get("fr_pokemon_5e", "currencyName")];
 		for (const currency in CONFIG.DND5E.currencies) {
 			if (currency === currencyToChange) {
 				CONFIG.DND5E.currencies[currency].abbreviation = "₽";
@@ -177,7 +177,7 @@ Hooks.once("init", () => {
 			const fakemonRadio = fakemonLi.querySelector('input[name="type"]');
 			fakemonRadio.value = "fakemon";
 			fakemonLi.querySelector("span").textContent = "Fakemon";
-			fakemonLi.querySelector("dnd5e-icon").setAttribute("src", "modules/pokemon5e/extras/pokeball.svg"); // todo: confirmar ruta real del ícono
+			fakemonLi.querySelector("dnd5e-icon").setAttribute("src", "modules/fr_pokemon_5e/extras/pokeball.svg"); // todo: confirmar ruta real del ícono
 			list.appendChild(fakemonLi);
 			pk5eLog("pk5e (renderApplicationV2): 'Fakemon' option inserted into Create Actor list", fakemonLi);
 

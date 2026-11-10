@@ -492,7 +492,7 @@ async function managePokemonMoves(event, sheet) {
 
 						// Adds
 						const movesToAdd = [];
-						const movesCompendium = game.packs.get("pokemon5e.pokemon_moves");
+						const movesCompendium = game.packs.get("fr_pokemon_5e.pokemon_moves");
 						namesOfMovesToAdd.forEach(moveName => {
 							const moveToAdd = movesCompendium.getName(moveName);
 							if (!moveToAdd) pk5eLog(`pk5e (move manager): Move "${moveName}" not found in compendium`);
@@ -837,7 +837,7 @@ async function managePokemonMoves(event, sheet) {
 
 	/**
 	 * Parses a biography move list HTML element and returns a sorted object of moves grouped by learning level.
-	 * ul -> li -> p -> Niveau X : @UUID[Compendium.pokemon5e...]{MoveName}, @... .
+	 * ul -> li -> p -> Niveau X : @UUID[Compendium.fr_pokemon_5e...]{MoveName}, @... .
 	 * Supported labels: "Départ :", "Niveau X :", "CT :", "Œuf :" (and the English "Starting:", "Level X:", "TMs:", "Egg:").
 	 * @param {HTMLElement} listHtml - The <ul> element containing the move list from the actor's biography.
 	 * @returns {Object.<string, Array<{name: string, img: string, UUID: string}>>} Sorted moves grouped by level label.
@@ -860,8 +860,8 @@ async function managePokemonMoves(event, sheet) {
 				const moveIdMatch = moveIdRaw.match(moveIdDetector);
 				if (!moveIdMatch) return;
 				const UUID = moveIdMatch[1];
-				const ID = UUID.replace("Compendium.pokemon5e.pokemon_moves.Item.", "");
-				const move = game.packs.get("pokemon5e.pokemon_moves").index.get(ID);
+				const ID = UUID.replace("Compendium.fr_pokemon_5e.pokemon_moves.Item.", "");
+				const move = game.packs.get("fr_pokemon_5e.pokemon_moves").index.get(ID);
 				unsortedMoves[label].push({ ...move, UUID });
 			});
 		});

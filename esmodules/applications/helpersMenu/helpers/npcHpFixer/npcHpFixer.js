@@ -52,13 +52,13 @@ export class NpcHpFixer extends HandlebarsApplicationMixin (ApplicationV2) {
 	 */
 	static PARTS = {
 		// Header with the tab navigation
-		header:  { template: "modules/pokemon5e/esmodules/applications/helpersMenu/helpers/npcHpFixer/npcHpFixer.header.hbs"  },
+		header:  { template: "modules/fr_pokemon_5e/esmodules/applications/helpersMenu/helpers/npcHpFixer/npcHpFixer.header.hbs"  },
 
 		// Content with the information and options for each tab
-		content: { template: "modules/pokemon5e/esmodules/applications/helpersMenu/helpers/npcHpFixer/npcHpFixer.content.hbs" },
+		content: { template: "modules/fr_pokemon_5e/esmodules/applications/helpersMenu/helpers/npcHpFixer/npcHpFixer.content.hbs" },
 
 		// Footer with the submit button and the expandable summary
-		footer:  { template: "modules/pokemon5e/esmodules/applications/helpersMenu/helpers/npcHpFixer/npcHpFixer.footer.hbs"  }
+		footer:  { template: "modules/fr_pokemon_5e/esmodules/applications/helpersMenu/helpers/npcHpFixer/npcHpFixer.footer.hbs"  }
 	};
 
 	/**
@@ -803,7 +803,7 @@ export class NpcHpFixer extends HandlebarsApplicationMixin (ApplicationV2) {
 		const location = this.#currentLocationOnCompendiumsTab.at(-1) ?? null;
 
 		const isAtRoot             = location === null;										// ? We are at the root if the navigation stack is empty
-		const isAtCompendium       = typeof location?.collection === "string";				// ? Compendiums have .collection as a string (e.g. "pokemon5e.pokedex_bestiary"). Folders also have .collection, but it returns an object, not a string.
+		const isAtCompendium       = typeof location?.collection === "string";				// ? Compendiums have .collection as a string (e.g. "fr_pokemon_5e.pokedex_bestiary"). Folders also have .collection, but it returns an object, not a string.
 		const isAtCompendiumFolder = !isAtCompendium && Boolean(location?.pack);			// ? Folders inside a compendium have the .pack property. Regular sidebar folders do not.
 		const isAtSidebarFolder    = !isAtRoot && !isAtCompendium && !isAtCompendiumFolder;	// ? If none of the above, it can only be a sidebar folder
 
