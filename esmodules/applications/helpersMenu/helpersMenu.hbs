@@ -1,0 +1,14 @@
+<div class="pk5e-helpers-menu__content">
+	<h3 class="pk5e-helpers-menu__title">Menu des outils d'aide</h3>
+	<p class="pk5e-helpers-menu__subtitle">Vous trouverez ici tous les outils d'aide conçus pour adapter les documents des anciennes versions (acteurs, objets, compendiums) aux dernières versions, en les mettant automatiquement à jour avec les derniers changements et améliorations du module.</p>
+
+	<div class="pk5e-helpers-menu__buttons-container">
+		{{#each helpers}}
+			<button class="pk5e-helpers-menu__button" type="button" data-action="{{this.action}}"
+			{{#if this.disabled}}disabled data-tooltip="Bientôt disponible" data-tooltip-direction="UP"{{/if}}>
+				<i class="{{this.icon}}"></i>
+				{{this.label}}
+			</button>
+		{{/each}}
+	</div>
+</div>

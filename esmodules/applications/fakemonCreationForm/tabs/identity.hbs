@@ -1,0 +1,31 @@
+<div class="tab {{ tab.cssClass }}" data-group="{{ tab.group }}" data-tab="{{ tab.id }}">
+
+	<div class="form-group">
+		<label>Nom</label>
+		<div class="form-fields">
+			<input type="text" name="name" placeholder="Saisissez le nom de votre Fakemon original">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label>Image</label>
+		<div class="form-fields">
+			<file-picker type="image" name="img"></file-picker>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label>Numéro du Pokédex</label>
+		<div class="form-fields">
+			<input type="text" name="pokedexNumber" placeholder="Saisissez le numéro du Pokédex (ex. : 1026, B001, FK-003, etc.)">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label>Entrée du Pokédex</label>
+		<div class="form-fields">
+			<textarea name="pokedexEntry" placeholder="Le Pokémon fait sur mesure. Saisissez ici une courte description pour l'entrée du Pokédex de votre Fakemon original."></textarea>
+		</div>
+	</div>
+
+</div>

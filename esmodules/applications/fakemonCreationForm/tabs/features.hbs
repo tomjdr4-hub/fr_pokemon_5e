@@ -1,0 +1,174 @@
+<div class="tab {{ tab.cssClass }}" data-group="{{ tab.group }}" data-tab="{{ tab.id }}">
+
+	{{!-- has Gender? --}}
+	<div class="form-group">
+		<label>A un sexe</label>
+		<div class="form-fields">
+			<input type="checkbox" name="hasGender" class="pk5e-has-gender" checked>
+		</div>
+	</div>
+
+	{{!-- Gender Ratio --}}
+	<div class="form-group split-group pk5e-gender-ratio-group">
+		<label>Répartition des sexes (% femelle / % mâle)</label>
+		<div class="form-fields pk5e-gender-ratio-row">
+			<input type="number" name="genderRatio.female" class="pk5e-gender-female"
+			       min="0" max="100" step="1" value="50">
+			<span class="sep pk5e-gender-female-unit">% ♀️</span>
+			<input type="number" name="genderRatio.male" class="pk5e-gender-male"
+			       min="0" max="100" step="1" value="50" readonly disabled tabindex="-1">
+			<span class="sep pk5e-gender-male-unit">% ♂️</span>
+			<input type="text" name="genderRatio.genderless" class="pk5e-gender-genderless"
+			       value="Asexué" readonly disabled tabindex="-1" style="display:none; text-align:center;">
+		</div>
+	</div>
+
+	{{!-- Types --}}
+	<div class="form-group">
+		<label>Types</label>
+		<div class="form-fields">
+			<multi-select name="pokemonTypes">
+				{{#each pokemonTypes}}
+				<option value="{{ this.value }}">{{ this.label }}</option>
+				{{/each}}
+			</multi-select>
+		</div>
+	</div>
+
+	{{!-- Ability --}}
+		<div class="form-group">
+		<label>Talents possibles</label>
+		<div class="form-fields">
+			<div class="pk5e-move-picker" data-field="possibleAbilities">
+				<button type="button" data-action="openCompendiumPicker" data-filter-type="ability" style="padding: 0 50px;">
+					<i class="fas fa-search"></i> Parcourir les talents
+				</button>
+				<div class="pk5e-move-picker-tags tags"></div>
+			</div>
+		</div>
+	</div>
+
+	{{!-- Hidden Ability --}}
+	<div class="form-group">
+		<label>Talents cachés possibles</label>
+		<div class="form-fields">
+			<div class="pk5e-move-picker" data-field="possibleHiddenAbilities">
+				<button type="button" data-action="openCompendiumPicker" data-filter-type="ability" style="padding: 0 50px;">
+					<i class="fas fa-search"></i> Parcourir les talents
+				</button>
+				<div class="pk5e-move-picker-tags tags"></div>
+			</div>
+		</div>
+	</div>
+
+	{{!-- Egg Group --}}
+	<div class="form-group">
+		<label>Groupe d'œufs</label>
+		<div class="form-fields">
+			<multi-select name="eggGroup">
+				<option value="Amorphe">			Amorphe				</option>
+				<option value="Insectoïde">			Insectoïde			</option>
+				<option value="Métamorph">			Métamorph			</option>
+				<option value="Draconique">			Draconique			</option>
+				<option value="Féerique">			Féerique			</option>
+				<option value="Terrestre">			Terrestre			</option>
+				<option value="Aérien">				Aérien				</option>
+				<option value="Végétal">			Végétal				</option>
+				<option value="Humanoïde">			Humanoïde			</option>
+				<option value="Minéral">			Minéral				</option>
+				<option value="Monstrueux">			Monstrueux			</option>
+				<option value="Aquatique 1">		Aquatique 1			</option>
+				<option value="Aquatique 2">		Aquatique 2			</option>
+				<option value="Aquatique 3">		Aquatique 3			</option>
+				<option value="Inconnu">			Inconnu (aucun œuf découvert)	</option>
+				<option value="Sexe inconnu">		Sexe inconnu		</option>
+			</multi-select>
+		</div>
+	</div>
+
+	{{!-- Speeds --}}
+	<fieldset>
+		<legend>Vitesses</legend>
+
+		<div class="form-group">
+			<label>Marche</label>
+			<div class="form-fields">
+				<input type="number" name="movement.walk" min="0" value="30" style="max-width: 110px;">
+				<span class="sep unit">pieds</span>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label>Nage</label>
+			<div class="form-fields">
+				<input type="number" name="movement.swim" min="0" value="0" style="max-width: 110px;">
+				<span class="sep unit">pieds</span>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label>Escalade</label>
+			<div class="form-fields">
+				<input type="number" name="movement.climb" min="0" value="0" style="max-width: 110px;">
+				<span class="sep unit">pieds</span>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label>Fouissement</label>
+			<div class="form-fields">
+				<input type="number" name="movement.burrow" min="0" value="0" style="max-width: 110px;">
+				<span class="sep unit">pieds</span>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label>Vol</label>
+			<div class="form-fields">
+				<input type="number" name="movement.fly" min="0" value="0" style="max-width: 110px;">
+				<span class="sep unit">pieds</span>
+				<span class="sep">Vol stationnaire ?</span>
+				<input type="checkbox" name="movement.hover">
+			</div>
+		</div>
+
+	</fieldset>
+
+	{{!-- Special Senses --}}
+	<fieldset>
+		<legend>Sens spéciaux</legend>
+
+		<div class="form-group">
+			<label>Vision dans le noir</label>
+			<div class="form-fields">
+				<input type="number" name="senses.darkvision" min="0" value="0">
+				<span class="sep unit">pieds</span>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label>Vision aveugle</label>
+			<div class="form-fields">
+				<input type="number" name="senses.blindsight" min="0" value="0">
+				<span class="sep unit">pieds</span>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label>Perception des vibrations</label>
+			<div class="form-fields">
+				<input type="number" name="senses.tremorsense" min="0" value="0">
+				<span class="sep unit">pieds</span>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label>Vision véritable</label>
+			<div class="form-fields">
+				<input type="number" name="senses.truesight" min="0" value="0">
+				<span class="sep unit">pieds</span>
+			</div>
+		</div>
+	</fieldset>
+
+</div>
